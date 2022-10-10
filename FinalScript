@@ -64,6 +64,19 @@ MovementSection:NewSlider("JumpPower", "Modify Your Jump Height", 500, 0, functi
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
+-- Other
+local Other = Window:NewTab("Other")
+local AdminSection = Other:NewSection("Admin Scripts")
+
+
+AdminSection:NewButton("Cmd-X", "CommandX FE Admin Commands", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+end)
+
+AdminSection:NewButton("Infinite Yield", "Infinite Yield Universal Admin Commands", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
 -- Options
 local Options = Window:NewTab("Options")
 local OptionSection = Options:NewSection("Options - Fully Developed By NoahNinja100")
