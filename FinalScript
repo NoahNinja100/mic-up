@@ -1,0 +1,74 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Mic-Up", "BloodTheme")
+
+-- FE
+local FE = Window:NewTab("FE")
+local ToolSection = FE:NewSection("Tools")
+local PlayerSection = FE:NewSection("Player")
+
+
+ToolSection:NewButton("Gay-Beam", "Rainbow Laser Beam Tool", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahNinja100/mic-up/main/GayBeam"))()
+end)
+
+ToolSection:NewButton("Telekenisis Tool", "Move Items - (Y to Throw, Q to go away, E to bring Forward)", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahNinja100/mic-up/main/TelekinesisGun"))()
+end)
+
+PlayerSection:NewButton("Invisibility", "Become Invisible - Shows to Everyone", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahNinja100/mic-up/main/FE%20INVISIBILITY"))()
+end)
+
+PlayerSection:NewButton("Remove Display Name", "Remove Your Display Name For Everyone", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahNinja100/mic-up/main/RemoveDisplayName"))()
+end)
+
+
+-- Voice
+local Voice = Window:NewTab("Voice")
+local VoiceSection = Voice:NewSection("Voice")
+
+
+VoiceSection:NewButton("Push-To-Talk", "Push T to toggle voice chat", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahNinja100/mic-up/main/PushToTalk"))()
+end)
+
+
+-- Server
+local Server = Window:NewTab("Server")
+local ServerSection = Server:NewSection("Server")
+
+
+ServerSection:NewButton("Kill All", "Kills All Players", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahNinja100/mic-up/main/KillAll"))()
+end)
+
+ServerSection:NewToggle("Spam Death Sound", "Everyone Can Hear", function(state)
+    if state then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahNinja100/mic-up/main/DeathSpamOn"))()
+    else
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahNinja100/mic-up/main/DeathSpamOff"))()
+    end
+end)
+
+-- Player
+local Player = Window:NewTab("Player")
+local MovementSection = Player:NewSection("Movement")
+
+
+MovementSection:NewSlider("WalkSpeed", "Modify Your Movement Speed", 500, 0, function(v) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+MovementSection:NewSlider("JumpPower", "Modify Your Jump Height", 500, 0, function(v) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+-- Options
+local Options = Window:NewTab("Options")
+local OptionSection = Options:NewSection("Options - Fully Developed By NoahNinja100")
+
+
+OptionSection:NewKeybind("Toggle Ui", "Toggles To Ui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
