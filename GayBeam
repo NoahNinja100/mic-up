@@ -1,0 +1,66 @@
+-- Script made by GROUD
+-- Gay Beam V2.3
+-- Press R to equip/requip the tools
+
+-- Veriables
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local Backpack = Player.Backpack
+local ToolsEquipped = true
+
+-- Settings
+local ToolAmount = 150 -- How many tools do you want?
+local ToolStudAmount = 3.5 -- How many studs do you want the tools be be apart?
+
+function GetTools()
+   for _,v in ipairs(workspace:GetDescendants()) do
+       if v:IsA("Decal") and v.Name == "Rainbow" then
+           for _ = 1, ToolAmount do
+               fireclickdetector(v.Parent.ClickDetector)
+           end
+       end
+   end
+end
+
+function ModifyTools()
+   for _,v in ipairs(Backpack:GetDescendants()) do
+       if v:IsA("Tool") then
+           v.Handle.Massless = true
+           v:FindFirstChildOfClass("LocalScript"):Destroy()
+           v.GripPos = Vector3.new(0,0,ToolStudAmount)
+           ToolStudAmount = ToolStudAmount + 1.5
+       end
+   end
+end
+
+function EquipTools()
+   for _,v in pairs(Backpack:GetChildren()) do
+       v.Parent = Character
+   end
+end
+
+function UnequipTools()
+   for _,v in pairs(Character:GetChildren()) do
+       if v:IsA("Tool") then
+           v.Parent = Backpack
+       end
+   end
+end
+
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+       if input.KeyCode == Enum.KeyCode.R then
+           if ToolsEquipped == true then
+               EquipTools()
+               ToolsEquipped = false
+           elseif ToolsEquipped == false then
+               UnequipTools()
+               ToolsEquipped = true
+       end
+   end
+end)
+
+GetTools()
+task.wait(1)
+ModifyTools()
+task.wait(1)
+EquipTools()
