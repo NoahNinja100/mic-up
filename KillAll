@@ -1,0 +1,12 @@
+game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(k)
+    if k == "e" then
+        for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+            function tp()
+                v.Character.HumanoidRootPart.CFrame = game.workspace["Guest 666"].HumanoidRootPart.CFrame
+    
+            end
+            pcall(tp)
+            wait()
+        end
+        end
+end)
