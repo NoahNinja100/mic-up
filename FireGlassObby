@@ -1,9 +1,0 @@
-game:GetService("Workspace")
-local playerHead = game.Players.LocalPlayer.Character.Head
-for i, v in pairs(game:GetService("Workspace").Model:GetDescendants()) do
-    if v.Name == "TouchInterest" and v.Parent then
-        firetouchinterest(playerHead, v.Parent, 0)
-        firetouchinterest(playerHead, v.Parent, 1)
-end
-end
-end)
