@@ -39,7 +39,7 @@ local Server = Window:NewTab("Server")
 local ServerSection = Server:NewSection("Server")
 
 
-ServerSection:NewButton("Kill All", "Kills All Players", function()
+ServerSection:NewButton("Kill All - Broken", "Kills All Players", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahNinja100/mic-up/main/KillAll"))()
 end)
 
@@ -56,11 +56,11 @@ local Player = Window:NewTab("Player")
 local MovementSection = Player:NewSection("Movement")
 
 
-MovementSection:NewSlider("WalkSpeed", "Modify Your Movement Speed", 500, 0, function(v) -- 500 (MaxValue) | 0 (MinValue)
+MovementSection:NewSlider("WalkSpeed", "Modify Your Movement Speed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
-MovementSection:NewSlider("JumpPower", "Modify Your Jump Height", 500, 0, function(v) -- 500 (MaxValue) | 0 (MinValue)
+MovementSection:NewSlider("JumpPower", "Modify Your Jump Height", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
