@@ -59,7 +59,7 @@ end)
 -- Player
 local Player = Window:NewTab("Player")
 local MovementSection = Player:NewSection("Movement")
-
+local SizeSection = Player:NewSection("Size")
 
 MovementSection:NewSlider("WalkSpeed", "Modify Your Movement Speed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
@@ -68,6 +68,11 @@ end)
 MovementSection:NewSlider("JumpPower", "Modify Your Jump Height", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
+
+SizeSection:NewButton("Giant", "May Not Work", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NocturneMoDz/GIANT/main/METAB", true))()
+end)
+
 
 -- Other
 local Other = Window:NewTab("Other")
