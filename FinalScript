@@ -72,6 +72,7 @@ end)
 -- Other
 local Other = Window:NewTab("Other")
 local AdminSection = Other:NewSection("Admin Scripts")
+local ScriptSection = Other:NewSection("My Other Scripts")
 
 
 AdminSection:NewButton("Cmd-X", "CommandX FE Admin Commands", function()
@@ -81,6 +82,11 @@ end)
 AdminSection:NewButton("Infinite Yield", "Infinite Yield Universal Admin Commands", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
+
+ScriptSection:NewButton("Avatar Editor", "Avatar Editor Made By Me", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahNinja100/avatar/main/final%20script", true))()
+end)
+
 
 -- Options
 local Options = Window:NewTab("Options")
